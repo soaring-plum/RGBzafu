@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/cl1">
+    <LinearLayout android:orientation="vertical"
+        android:id="@+id/ll_status_nav"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <View android:orientation="horizontal" android:id="@+id/ll_status" android:layout_width="match_parent" android:layout_height="20dp"/>
+        <LinearLayout android:orientation="horizontal" android:id="@+id/ll_nav" android:layout_width="match_parent" android:layout_height="44dp">
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@+id/ll_nav_left" android:layout_width="60dp" android:layout_height="match_parent"/>
+            <TextView android:textSize="16sp" android:textColor="@color/white" android:gravity="center" android:id="@+id/tv_nav_title" android:layout_width="0dp" android:layout_height="44dp" android:text="通讯录" android:singleLine="true" android:layout_weight="1" android:textAlignment="center"/>
+            <LinearLayout android:gravity="center" android:orientation="horizontal" android:id="@+id/ll_nav_right" android:layout_width="60dp" android:layout_height="match_parent">
+                <ImageView android:layout_gravity="center" android:id="@+id/img_nav_right" android:layout_width="20dp" android:layout_height="20dp" android:src="@mipmap/dog" android:scaleType="fitCenter" app:tint="@color/white"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:id="@+id/ll_search"
+        android:background="#f2f2f2"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_margin="10dp"
+        app:layout_constrainedHeight="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_status_nav">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@mipmap/dog"
+            android:layout_marginStart="10dp"/>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:textSize="13sp"
+            android:textColor="@color/pink"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查找联系人"/>
+
+    </LinearLayout><androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_search">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar" android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp" app:expanded="true">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="10dp" app:layout_scrollFlags="enterAlways">
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:textSize="14sp"
+                    android:textColor="@color/pink"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="常用联系人"
+                    android:layout_marginStart="10dp"
+                    app:layout_constrainedHeight="true"
+                    app:layout_constrainedWidth="true"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <androidx.appcompat.widget.AppCompatTextView android:textSize="14sp" android:textColor="@color/black" android:id="@+id/tv_all" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="全部" android:layout_marginEnd="10dp" app:layout_constrainedHeight="true" app:layout_constrainedWidth="true" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"/>
+                <androidx.recyclerview.widget.RecyclerView android:id="@+id/recycler_freq" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="10dp" app:layout_constrainedHeight="true" app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toBottomOf="@+id/tv_all"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.tabs.TabLayout android:id="@+id/tab" android:background="#fff" android:longClickable="false" android:layout_width="match_parent" android:layout_height="44dp" app:tabIndicatorColor="@color/black" app:tabIndicatorFullWidth="false" app:tabIndicatorHeight="2dp" app:tabInlineLabel="false" app:tabMode="scrollable" app:tabRippleColor="#fff" app:tabSelectedTextColor="@color/black" app:tabTextColor="@color/pink"/>
+            <View android:background="@color/pink" android:layout_width="match_parent" android:layout_height="1dp"/>
+        </com.google.android.material.appbar.AppBarLayout>
+        <androidx.viewpager2.widget.ViewPager2 android:id="@+id/viewpager2" android:background="#fff" android:layout_width="match_parent" android:layout_height="match_parent" app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
